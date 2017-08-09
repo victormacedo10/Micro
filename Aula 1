@@ -1,0 +1,24 @@
+1. O que são sistemas embarcados?
+      R: É um sistema completamente encapsula com uma função específica.
+2. O que são sistemas microprocesssados?
+      R: Sistemas que utilizam microprocessadores para o controle.
+
+3. Apresente aplicações de sistemas embarcados:
+	(a) Para a indústria automotiva;
+      R: Controle dos sistemas elétricos do carro, principalmente nos modelos mais novos.
+      Ex: Painel de controle, farol, sistema de navegação, etc.
+	(b) Para eletrodomésticos;
+      Ex: Controle dos motores, presentes em uma máquina de lavar louça, em função das configurações predeterminadas pelo usuário
+      no painel de controle.
+	(c) Para automação industrial.
+      R: Controle de todas as máquinas presentes na linha de produção para coordenar a atuação de cada uma.
+      Ex: Um dos microprocessadores normalmentes utilizados é o Soft Starter, que apresenta várias entradas para todos os sensores
+      da linha de produção e várias saídas para os motores.
+
+4. Cite arquiteturas possíveis e as diferenças entre elas.
+      R: Controlador completo, microcontroladores e circuitos integrados. A diferença está nos módulos auxiliares ao processador.
+      Um circuito integrado não apresenta memória, diferentemente dos outros. Já um controlador completo apresenta funções extras
+      como uma saída VGA por exemplo.
+      
+5. Por que usamos o MSP430 na disciplina, ao invés de outro microcontrolador?
+      R: Baixo custo.
