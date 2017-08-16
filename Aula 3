@@ -1,0 +1,128 @@
+1. Dada uma variável a do tipo char (um byte), escreva os trechos de código em C para:
+(a) Somente setar o bit menos significativo de a. 
+    P1DIR = 0x0001; ou P1DIR = BIT0;
+    
+(b) Somente setar dois bits de a: o menos significativo e o segundo menos significativo. 
+    P1DIR = 0x0003; ou P1DIR = BIT0 + BIT1;
+
+(c) Somente zerar o terceiro bit menos significativo de a. 
+    P1OUT &= ~(0x0004);
+
+(d) Somente zerar o terceiro e o quarto bits menos significativo de a. 
+    P1OUT &= ~(0x00012);
+    
+(e) Somente inverter o bit mais significativo de a. 
+    P1OUT ^= 0x128
+
+(f) Inverter o nibble mais significativo de a, e setar o nibble menos significativo de a.
+    P1OUT ^= BIT7 + BIT6 + BIT5 + BIT4
+
+2. Considerando a placa Launchpad do MSP430, escreva o código em C para piscar os dois LEDs ininterruptamente.
+    #include <msp450g2553.h>
+    #define LEDS (BIT0 + BIT6)
+    
+    int main(void)
+    {
+      WDTCTL = WDTPW + WDTHOLD;
+      P1DIR = LEDS;
+      while(1)
+      {
+        P1OUT ^= LEDS; 
+      }
+      return 0;
+    }
+    
+
+3. Considerando a placa Launchpad do MSP430, escreva o código em C para piscar duas vezes os dois LEDs sempre que o usuário pressionar o botão.
+    #include <msp450g2553.h>
+    #define LEDS (BIT0 + BIT6)
+    #define BTN BIT3
+    
+    int main(void)
+    {
+      WDTCTL = WDTPW + WDTHOLD;
+      P1DIR = LEDS;
+      while(1)
+      {
+         if(P1OUT & BTN == 0)
+         {
+            for(int i = 0; i < 5; i++)
+            {
+              P1OUT ^= LEDS;
+            }
+         }
+      }
+      return 0;
+    }
+
+4. Considerando a placa Launchpad do MSP430, faça uma função em C que pisca os dois LEDs uma vez.
+    #include <msp450g2553.h>
+    #define LEDS (BIT0 + BIT6)
+    #define BTN BIT3
+    
+    void pisca(void)
+    {
+      WDTCTL = WDTPW + WDTHOLD;
+      P1DIR = LEDS;
+      for(int i = 0; i < 3; i++)
+        {
+          P1OUT ^= LEDS;
+        }
+    }
+
+5. Reescreva o código da questão 2 usando a função da questão 4.
+    #include <msp450g2553.h>
+    #define LEDS (BIT0 + BIT6)
+   
+    void pisca(void)
+    {
+      WDTCTL = WDTPW + WDTHOLD;
+      P1DIR = LEDS;
+      for(int i = 0; i < 3; i++)
+        {
+          P1OUT ^= LEDS;
+        }
+    }   
+   
+    int main(void)
+    {
+      WDTCTL = WDTPW + WDTHOLD;
+      P1DIR = LEDS;
+      while(1)
+      {
+        pisca();
+      }
+      return 0;
+    }
+
+
+6. Reescreva o código da questão 3 usando a função da questão 4.
+    #include <msp450g2553.h>
+    #define LEDS (BIT0 + BIT6)
+    #define BTN BIT3
+
+    void pisca(void)
+    {
+      WDTCTL = WDTPW + WDTHOLD;
+      P1DIR = LEDS;
+      for(int i = 0; i < 3; i++)
+        {
+          P1OUT ^= LEDS;
+        }
+    }
+
+    void main(void)
+    {
+      WDTCTL = WDTPW + WDTHOLD;
+      P1DIR = LEDS;
+      while(1)
+      {
+         if(P1OUT & BTN == 0)
+         {
+            for(int i = 0; i < 3; i++)
+            {
+              pisca();
+            }
+         }
+      }
+    }
