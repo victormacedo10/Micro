@@ -2,8 +2,8 @@
   R: Eles podem ter tamanhos diferentes. 
 
 2- Quais são as diferenças entre as memórias RAM e ROM?
-  R: A ROM demora muito para ser escrita e, portanto, so eh lida. Ja a RAM pode ser lida e escrita com a mesma velocidade.
-     A ROM eh mantem a informacao armazenada mesmo apos ser desligada, ja a RAM perde o seu conteudo.
+  R: A ROM demora muito para ser escrita e, portanto, só é lida. Já a RAM pode ser lida e escrita com a mesma velocidade.
+     A ROM é mantem a informação armazenada mesmo após ser desligada, já a RAM perde o seu conteúdo.
   
 3- Considere o código abaixo:
 
@@ -21,12 +21,22 @@ int main(void)
 }
 Para este código, responda: 
 (a) A variável i é armazenada na memória RAM ou ROM? Por quê? 
-  R: Na RAM pois a variavel eh atualizada durante o programa.
+  R: Na RAM pois a variavel é atualizada durante o programa.
 (b) O programa compilado a partir deste código é armazenado na memória RAM ou ROM? Por quê?
   R: Na ROM pois o programa deve continuar presente na memoria do microcontrolador mesmo apos ser desligado.
   
 4- Quais são as diferenças, vantagens e desvantagens das arquiteturas Harvard e Von Neumann?
-  R: A arquitetura Harvard eh mais complexa e permite a leitura de dados e do programa de forma simultanea.
-Considere a variável inteira i, armazenando o valor 0x8051ABCD. Se i é armazenada na memória a partir do endereço 0x0200, como ficam este byte e os seguintes, considerando que a memória é: (a) Little-endian; (b) Big-endian.
+  R: A arquitetura Harvard é mais complexa e permite a leitura de dados e do programa de forma simultânea.
+  
+5- Considere a variável inteira i, armazenando o valor 0xABCD8051.
+Se i é armazenada na memória a partir do endereço 0x0200, como ficam este byte e os seguintes, considerando que a memória é: 
+(a) Little-endian; 
+    0x0200 = 0x8051
+    0x0201 = 0xABCD
 
-Sabendo que o processador do MSP430 tem registradores de 16 bits, como ele soma duas variáveis de 32 bits?
+(b) Big-endian.
+    0x0200 = 0xABCD
+    0x0201 = 0x8051
+
+6- Sabendo que o processador do MSP430 tem registradores de 16 bits, como ele soma duas variáveis de 32 bits?
+
