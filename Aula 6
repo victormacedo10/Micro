@@ -13,15 +13,15 @@ utilizando o seguinte algoritmo: após n+1 iterações, a raiz quadrada de S é 
 
     unsigned int Raiz_Quadrada(unsigned int S);
     
- R: unsigned int Raiz_Quadrada(unsigned int S)
+ R: float Raiz_Quadrada(unsigned int S)
     {
-      if(i>n)
-      {
-        return 0;
-      }
-      i++;
-      return (Raiz_Quadrada(unsigned int S))
-      for (int i=0; i<=n; i++)
+        int n = 30;
+        float x = S/2;
+        int i;
+        for(i=0; i<=n+1; i++){
+            x = (x + (S/x))/2;
+        }
+        return x;
     }
   
   (b) Escreva a sub-rotina equivalente na linguagem Assembly do MSP430. 
